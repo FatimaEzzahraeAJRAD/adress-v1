@@ -23,7 +23,7 @@ public class LocalVo implements Serializable {
     @ManyToOne
     private RedevableVo proprietaire;
     @ManyToOne
-    private RueVo rue;
+    private RueVo rueVo;
     private String dernierMontantPaye ;
     private String dernierTrimestrePaye ;
     private String dernierAnneePaye ;
@@ -53,12 +53,12 @@ public class LocalVo implements Serializable {
         this.proprietaire = proprietaire;
     }
 
-    public RueVo getRue() {
-        return rue;
+    public RueVo getRueVo() {
+        return rueVo;
     }
 
-    public void setRue(RueVo rue) {
-        this.rue = rue;
+    public void setRueVo(RueVo rueVo) {
+        this.rueVo = rueVo;
     }
 
     public String getDernierMontantPaye() {

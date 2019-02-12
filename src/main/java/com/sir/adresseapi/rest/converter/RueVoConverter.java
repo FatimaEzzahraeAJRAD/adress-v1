@@ -34,30 +34,30 @@ public class RueVoConverter {
         return rue;
         }
      
-    public Rue toVO(RueVo rueVo) {
-        Rue rue = new Rue();
-        if (rueVo != null) {
-             if (rueVo.getReference() != null) {
-                rue.setReference(rueVo.getReference());
+    public RueVo toVO(Rue rue) {
+        RueVo rueVo = new RueVo();
+        if (rue != null) {
+             if (rue.getReference() != null) {
+                rueVo.setReference(rue.getReference());
             }
-            if (rueVo.getQuartier()!= null) {
-                rue.setQuartier(new QuartierVoConverter.toItem( rueVo.getQuartier()));
+            if (rue.getQuartier()!= null) {
+                rueVo.setQuartier(new QuartierVoConverter.toVo( rue.getQuartier()));
             }
-            if (rueVo.getLocals()!= null) {
-                rue.setLocals( new LocalVoConverter.toItem(rueVo.getLocals()));
+            if (rue.getLocals()!= null) {
+                rueVo.setLocals( new LocalVoConverter.toVO(rue.getLocals()));
             }
             }
-        return rue;
+        return rueVo;
     }
 
-    public List<LocalVo> toVo(List<Local> locals) {
-        List<LocalVo> localVos = new ArrayList();
-        if (locals != null && !localVos.isEmpty()) {
-            for (Local local : locals) {
-                localVos.add(local);
+    public List<RueVo> toVo(List<Rue> rues) {
+        List<RueVo> rueVos = new ArrayList();
+        if (rues != null && !rues.isEmpty()) {
+            for (Rue rue : rues) {
+                rueVos.add(toVo(rue));
             }
         }
-        return localVos;
+        return rueVos;
     }
 
     

@@ -15,6 +15,7 @@ import java.util.List;
  * @author Jawadoo
  */
 public class LocalVoConverter {
+    
      public Local toItem(LocalVo localVo) {
         Local local = new Local();
         if (localVo != null) {
@@ -37,33 +38,34 @@ public class LocalVoConverter {
         }
         return local;
     }
-    public Local toVO(LocalVo localVo) {
-        Local local = new Local();
-        if (localVo != null) {
-            if (localVo.getRue()!= null) {
-               local.setRue(localVo.getRue());
+    public LocalVo toVO(Local local) {
+        LocalVo localVo = new LocalVo();
+        if (local != null) {
+            if (local.getRue()!= null) {
+               localVo.setRue( new RueVoConverter().toVo(local.getRue()));
             }
-            if (localVo.getReference() != null) {
-                local.setReference(localVo.getReference());
+            if (local.getReference() != null) {
+                localVo.setReference(local.getReference());
             }
-            if (localVo.getDernierAnneePaye()!= null) {
-                local.setDernierAnneePaye(new Integer(localVo.getDernierAnneePaye()));
+            
+            if(local.getDernierAnneePaye()!= null) {
+                localVo.setDernierAnneePaye(new Integer(local.getDernierAnneePaye()));
             }
-            if (localVo.getDernierMontantPaye()!= null) {
-                local.setDernierMontantPaye(new Double(localVo.getDernierMontantPaye()));
+            if (local.getDernierMontantPaye()!= null) {
+                localVo.setDernierMontantPaye(new Double(local.getDernierMontantPaye()));
             }
-            if (localVo.getDernierTrimestrePaye()!= null) {
-                local.setDernierTrimestrePaye(new Integer(localVo.getDernierTrimestrePaye()));
+            if (local.getDernierTrimestrePaye()!= null) {
+                localVo.setDernierTrimestrePaye(new Integer(local.getDernierTrimestrePaye()));
             }
         }
-        return local;
+        return localVo;
     }
 
-    public List<LocalVo> toVo(List<Local> locals) {
+   public List<LocalVo> toVo(List<Local> locals) {
         List<LocalVo> localVos = new ArrayList();
-        if (locals != null && !localVos.isEmpty()) {
+        if (locals != null && !locals.isEmpty()) {
             for (Local local : locals) {
-                localVos.add(local);
+                localVos.add(toVo(local));
             }
         }
         return localVos;
