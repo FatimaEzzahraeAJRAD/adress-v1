@@ -24,7 +24,6 @@ public class Local implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String reference;
-    private Double surface;
     @ManyToOne
     private Redevable redevable;
     @ManyToOne
@@ -52,14 +51,7 @@ public class Local implements Serializable {
         this.reference = reference;
     }
 
-    public Double getSurface() {
-        return surface;
-    }
-
-    public void setSurface(Double surface) {
-        this.surface = surface;
-    }
-    
+   
     public Redevable getRedevable() {
         return redevable;
     }

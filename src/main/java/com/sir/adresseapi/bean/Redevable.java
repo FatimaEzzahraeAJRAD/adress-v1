@@ -27,6 +27,11 @@ public class Redevable implements Serializable {
     private Long id;
     private String cin;
     private String nom;
+    private String prenom;
+    private String matricule;
+    private String telephone;
+    private String adresse;
+    
     @OneToMany(mappedBy = "redevable")
     private List<Local> locals;
 
@@ -60,6 +65,38 @@ public class Redevable implements Serializable {
 
     public void setLocals(List<Local> locals) {
         this.locals = locals;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public String getMatricule() {
+        return matricule;
+    }
+
+    public void setMatricule(String matricule) {
+        this.matricule = matricule;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
     }
     
 
