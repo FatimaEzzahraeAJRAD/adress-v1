@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sir.adresseapi.vo;
+package com.sir.adresseapi.rest.vo;
 
 import com.sir.adresseapi.bean.*;
 import java.io.Serializable;
@@ -12,51 +12,47 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
  *
+ * 
  * @author user
  */
 @Entity
-public class RueVo implements Serializable {
-
-    
-
+public class RedevableVo implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String reference;
-    @ManyToOne
-    private QuartierVo quartier;
-    @OneToMany(mappedBy = "rue")
+    private String cin;
+    private String nom;
+    @OneToMany(mappedBy = "redevable")
     private List<LocalVo> locals;
 
+
+    public String getCin() {
+        return cin;
+    }
+
+    public void setCin(String cin) {
+        this.cin = cin;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getReference() {
-        return reference;
-    }
-
-    public void setReference(String reference) {
-        this.reference = reference;
-    }
-
-    public QuartierVo getQuartier() {
-        return quartier;
-    }
-
-    public void setQuartier(QuartierVo quartier) {
-        this.quartier = quartier;
     }
 
     public List<LocalVo> getLocals() {
@@ -66,9 +62,8 @@ public class RueVo implements Serializable {
     public void setLocals(List<LocalVo> locals) {
         this.locals = locals;
     }
-
-
     
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -79,10 +74,10 @@ public class RueVo implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof RueVo)) {
+        if (!(object instanceof RedevableVo)) {
             return false;
         }
-        RueVo other = (RueVo) object;
+        RedevableVo other = (RedevableVo) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -91,7 +86,7 @@ public class RueVo implements Serializable {
 
     @Override
     public String toString() {
-        return "com.sir.adresseapi.bean.Rue[ id=" + id + " ]";
+        return "com.sir.adresseapi.bean.Redevable[ id=" + id + " ]";
     }
     
 }

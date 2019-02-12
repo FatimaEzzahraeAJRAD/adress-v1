@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sir.adresseapi.vo;
+package com.sir.adresseapi.rest.vo;
 
 import com.sir.adresseapi.bean.*;
 import java.io.Serializable;
@@ -12,7 +12,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -20,7 +19,7 @@ import javax.persistence.OneToMany;
  * @author user
  */
 @Entity
-public class QuartierVo implements Serializable {
+public class SecteurVo implements Serializable {
 
    
 
@@ -29,12 +28,8 @@ public class QuartierVo implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String reference;
-    
-    @ManyToOne
-    private SecteurVo secteur;
-    @OneToMany(mappedBy = "quartier")
-    private List<RueVo> rues;
-
+     @OneToMany(mappedBy = "secteur")
+    private List<QuartierVo> quartiers;
 
     public Long getId() {
         return id;
@@ -51,25 +46,17 @@ public class QuartierVo implements Serializable {
     public void setReference(String reference) {
         this.reference = reference;
     }
-    
 
-    public SecteurVo getSecteur() {
-        return secteur;
+    public List<QuartierVo> getQuartiers() {
+        return quartiers;
     }
 
-    public void setSecteur(SecteurVo secteur) {
-        this.secteur = secteur;
-    }
-
-    public List<RueVo> getRues() {
-        return rues;
-    }
-
-    public void setRues(List<RueVo> rues) {
-        this.rues = rues;
+    public void setQuartiers(List<QuartierVo> quartiers) {
+        this.quartiers = quartiers;
     }
     
 
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -80,10 +67,10 @@ public class QuartierVo implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof QuartierVo)) {
+        if (!(object instanceof SecteurVo)) {
             return false;
         }
-        QuartierVo other = (QuartierVo) object;
+        SecteurVo other = (SecteurVo) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -92,7 +79,7 @@ public class QuartierVo implements Serializable {
 
     @Override
     public String toString() {
-        return "com.sir.adresseapi.bean.Quartier[ id=" + id + " ]";
+        return "com.sir.adresseapi.bean.Secteur[ id=" + id + " ]";
     }
     
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sir.adresseapi.vo;
+package com.sir.adresseapi.rest.vo;
 
 import com.sir.adresseapi.bean.*;
 import java.io.Serializable;
@@ -12,41 +12,30 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
  *
- * 
  * @author user
  */
 @Entity
-public class RedevableVo implements Serializable {
+public class QuartierVo implements Serializable {
+
+   
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String cin;
-    private String nom;
-    @OneToMany(mappedBy = "redevable")
-    private List<LocalVo> locals;
+    private String reference;
+    
+    @ManyToOne
+    private SecteurVo secteur;
+    @OneToMany(mappedBy = "quartier")
+    private List<RueVo> rues;
 
 
-    public String getCin() {
-        return cin;
-    }
-
-    public void setCin(String cin) {
-        this.cin = cin;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
     public Long getId() {
         return id;
     }
@@ -55,12 +44,29 @@ public class RedevableVo implements Serializable {
         this.id = id;
     }
 
-    public List<LocalVo> getLocals() {
-        return locals;
+    public String getReference() {
+        return reference;
     }
 
-    public void setLocals(List<LocalVo> locals) {
-        this.locals = locals;
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
+    
+
+    public SecteurVo getSecteur() {
+        return secteur;
+    }
+
+    public void setSecteur(SecteurVo secteur) {
+        this.secteur = secteur;
+    }
+
+    public List<RueVo> getRues() {
+        return rues;
+    }
+
+    public void setRues(List<RueVo> rues) {
+        this.rues = rues;
     }
     
 
@@ -74,10 +80,10 @@ public class RedevableVo implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof RedevableVo)) {
+        if (!(object instanceof QuartierVo)) {
             return false;
         }
-        RedevableVo other = (RedevableVo) object;
+        QuartierVo other = (QuartierVo) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -86,7 +92,7 @@ public class RedevableVo implements Serializable {
 
     @Override
     public String toString() {
-        return "com.sir.adresseapi.bean.Redevable[ id=" + id + " ]";
+        return "com.sir.adresseapi.bean.Quartier[ id=" + id + " ]";
     }
     
 }
