@@ -35,6 +35,13 @@ public class LocalVoConverter {
             if (localVo.getDernierTrimestrePaye()!= null) {
                 local.setDernierTrimestrePaye(new Integer(localVo.getDernierTrimestrePaye()));
             }
+            if (localVo.getRedevableVo()!= null) {
+                local.setRedevable(new RedevableVoConverter().toItem(localVo.getRedevableVo()));
+            }
+            if (localVo.getProprietaireVo()!= null) {
+                local.setProprietaire(new RedevableVoConverter().toItem(localVo.getProprietaireVo()));
+            }
+           
         }
         return local;
     }
@@ -55,6 +62,12 @@ public class LocalVoConverter {
             }
             if (local.getDernierTrimestrePaye()!= null) {
                 local.setDernierTrimestrePaye(new Integer(localVo.getDernierTrimestrePaye()));
+            }
+            if (local.getRedevable()!= null) {
+                localVo.setRedevableVo(new RedevableVoConverter().toVO(local.getRedevable()));
+            }
+            if (local.getProprietaire()!= null) {
+                localVo.setProprietaireVo(new RedevableVoConverter().toVO(local.getProprietaire()));
             }
             
         }

@@ -24,16 +24,25 @@ public class Local implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String reference;
+    private double  chiffreAffaire;
     @ManyToOne
     private Redevable redevable;
     @ManyToOne
     private Redevable proprietaire;
     @ManyToOne
     private Rue rue;
-    private Double dernierMontantPaye ;
+    private double dernierMontantPaye ;
     private int dernierTrimestrePaye ;
-    private int dernierAnneePaye ;
+    private double dernierAnneePaye ;
     private String refCategorie;
+
+    public double getChiffreAffaire() {
+        return chiffreAffaire;
+    }
+
+    public void setChiffreAffaire(double chiffreAffaire) {
+        this.chiffreAffaire = chiffreAffaire;
+    }
 
     public Long getId() {
         return id;
@@ -85,11 +94,11 @@ public class Local implements Serializable {
         this.refCategorie = refCategorie;
     }
 
-    public Double getDernierMontantPaye() {
+    public double getDernierMontantPaye() {
         return dernierMontantPaye;
     }
 
-    public void setDernierMontantPaye(Double dernierMontantPaye) {
+    public void setDernierMontantPaye(double dernierMontantPaye) {
         this.dernierMontantPaye = dernierMontantPaye;
     }
 
@@ -101,11 +110,11 @@ public class Local implements Serializable {
         this.dernierTrimestrePaye = dernierTrimestrePaye;
     }
 
-    public int getDernierAnneePaye() {
+    public double getDernierAnneePaye() {
         return dernierAnneePaye;
     }
 
-    public void setDernierAnneePaye(int dernierAnneePaye) {
+    public void setDernierAnneePaye(double dernierAnneePaye) {
         this.dernierAnneePaye = dernierAnneePaye;
     }
 

@@ -38,7 +38,7 @@ public class SecteurVoConverter {
                 secteurVo.setReference(secteur.getReference());
             }
             if (secteur.getQuartiers()!= null) {
-                secteurVo.setQuartierVo(new QuartierVoConverter().toVo(secteur.getQuartiers()));
+                secteurVo.setQuartiers(new QuartierVoConverter().toVo(secteur.getQuartiers()));
             }
            
             }

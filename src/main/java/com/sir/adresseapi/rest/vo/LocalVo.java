@@ -19,9 +19,9 @@ public class LocalVo implements Serializable {
     
     private String reference;
     @ManyToOne
-    private RedevableVo redevable;
+    private RedevableVo redevableVo;
     @ManyToOne
-    private RedevableVo proprietaire;
+    private RedevableVo proprietaireVo;
     @ManyToOne
     private RueVo rueVo;
     private String dernierMontantPaye ;
@@ -37,20 +37,20 @@ public class LocalVo implements Serializable {
         this.reference = reference;
     }
 
-    public RedevableVo getRedevable() {
-        return redevable;
+    public RedevableVo getRedevableVo() {
+        return redevableVo;
     }
 
-    public void setRedevable(RedevableVo redevable) {
-        this.redevable = redevable;
+    public void setRedevableVo(RedevableVo redevableVo) {
+        this.redevableVo = redevableVo;
     }
 
-    public RedevableVo getProprietaire() {
-        return proprietaire;
+    public RedevableVo getProprietaireVo() {
+        return proprietaireVo;
     }
 
-    public void setProprietaire(RedevableVo proprietaire) {
-        this.proprietaire = proprietaire;
+    public void setProprietaireVo(RedevableVo proprietaireVo) {
+        this.proprietaireVo = proprietaireVo;
     }
 
     public RueVo getRueVo() {
