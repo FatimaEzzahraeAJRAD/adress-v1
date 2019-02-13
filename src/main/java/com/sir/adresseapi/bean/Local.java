@@ -30,7 +30,7 @@ public class Local implements Serializable {
     private Redevable proprietaire;
     @ManyToOne
     private Rue rue;
-    private Double dernierMontantPaye = 0D;
+    private Double dernierMontantPaye ;
     private int dernierTrimestrePaye ;
     private int dernierAnneePaye ;
     private String refCategorie;

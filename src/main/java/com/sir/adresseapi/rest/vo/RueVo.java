@@ -27,9 +27,9 @@ public class RueVo implements Serializable {
     private static final long serialVersionUID = 1L;
     private String reference;
     @ManyToOne
-    private QuartierVo quartier;
+    private QuartierVo quartierVo;
     @OneToMany(mappedBy = "rue")
-    private List<LocalVo> locals;
+    private List<LocalVo> localsVo;
 
  
     public String getReference() {
@@ -40,19 +40,23 @@ public class RueVo implements Serializable {
         this.reference = reference;
     }
 
-    public QuartierVo getQuartier() {
-        return quartier;
+    public QuartierVo getQuartierVo() {
+        return quartierVo;
     }
 
-    public void setQuartier(QuartierVo quartier) {
-        this.quartier = quartier;
+    public void setQuartierVo(QuartierVo quartierVo) {
+        this.quartierVo = quartierVo;
     }
 
-    public List<LocalVo> getLocals() {
-        return locals;
+    public List<LocalVo> getLocalsVo() {
+        return localsVo;
     }
 
-    public void setLocals(List<LocalVo> locals) {
-        this.locals = locals;
+    public void setLocalsVo(List<LocalVo> localsVo) {
+        this.localsVo = localsVo;
     }
+
+    
+
+   
 }

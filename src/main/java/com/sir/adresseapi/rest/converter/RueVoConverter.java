@@ -24,27 +24,27 @@ public class RueVoConverter {
             if (rueVo.getReference() != null) {
                 rue.setReference(rueVo.getReference());
             }
-            if (rueVo.getQuartier()!= null) {
-                rue.setQuartier(new QuartierVoConverter.toItem( rueVo.getQuartier()));
+            if (rueVo.getQuartierVo()!= null) {
+                rue.setQuartier(new QuartierVoConverter().toItem(rueVo.getQuartierVo()));
             }
-            if (rueVo.getLocals()!= null) {
-                rue.setLocals( new LocalVoConverter.toItem(rueVo.getLocals()));
+            if (rueVo.getLocalsVo()!= null) {
+                rue.setLocals(new LocalVoConverter().toItem(rueVo.getLocalsVo()));
             }
             }
         return rue;
         }
      
-    public RueVo toVO(Rue rue) {
+    public RueVo toVo(Rue rue) {
         RueVo rueVo = new RueVo();
         if (rue != null) {
              if (rue.getReference() != null) {
                 rueVo.setReference(rue.getReference());
             }
             if (rue.getQuartier()!= null) {
-                rueVo.setQuartier(new QuartierVoConverter.toVo( rue.getQuartier()));
+                rueVo.setQuartierVo(new QuartierVoConverter().toVo(rue.getQuartier()));
             }
             if (rue.getLocals()!= null) {
-                rueVo.setLocals( new LocalVoConverter.toVO(rue.getLocals()));
+                rueVo.setLocalsVo( new LocalVoConverter().toVo(rue.getLocals()));
             }
             }
         return rueVo;

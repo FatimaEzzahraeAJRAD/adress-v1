@@ -24,21 +24,21 @@ public class SecteurVoConverter {
                 secteur.setReference(secteurVo.getReference());
             }
             if (secteurVo.getQuartiers()!= null) {
-                secteur.setQuartier(new QuartierVoConverter.toItem( secteurVo.getQuartiers()));
+                secteur.setQuartier(new QuartierVoConverter().toItem(secteurVo.getQuartiers()));
             }
            
             }
         return secteur;
         }
      
-     public SecteurVo toVo( Secteur secteur) {
+     public SecteurVo toVo(Secteur secteur) {
         SecteurVo secteurVo = new SecteurVo();
         if (secteur != null) {
             if (secteur.getReference() != null) {
                 secteurVo.setReference(secteur.getReference());
             }
             if (secteur.getQuartiers()!= null) {
-                secteurVo.setQuartier(new QuartierVoConverter.toVo( secteur.getQuartiers()));
+                secteurVo.setQuartierVo(new QuartierVoConverter().toVo(secteur.getQuartiers()));
             }
            
             }

@@ -43,7 +43,7 @@ public class QuartierVoConverter {
         }
         return quartier;
     }
-    public QuartierVo toVO(Quartier quartier) {
+    public QuartierVo toVo(Quartier quartier) {
          QuartierVo quartierVo = new QuartierVo();
         if (quartier != null) {
             
@@ -68,15 +68,15 @@ public class QuartierVoConverter {
         }
         return quartierVo;
     }
-//    public List<QuartierVo> toVo(List<Quartier> quartiers) {
-//        List<QuartierVo> quartierVos = new ArrayList();
-//        if (quartiers != null && !quartiers.isEmpty()) {
-//            for (Quartier quartier : quartiers) {
-//                quartierVos.add(toVo(quartier));
-//            }
-//        }
-//        return quartierVos;
-//    }
+    public List<QuartierVo> toVo(List<Quartier> quartiers) {
+        List<QuartierVo> quartierVos = new ArrayList();
+        if (quartiers != null && !quartiers.isEmpty()) {
+            for (Quartier quartier : quartiers) {
+                quartierVos.add(toVo(quartier));
+            }
+        }
+        return quartierVos;
+    }
 
     
     

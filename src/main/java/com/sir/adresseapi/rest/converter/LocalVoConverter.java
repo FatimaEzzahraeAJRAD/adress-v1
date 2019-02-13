@@ -42,21 +42,21 @@ public class LocalVoConverter {
         LocalVo localVo = new LocalVo();
         if (local != null) {
             if (local.getRue()!= null) {
-               localVo.setRue( new RueVoConverter().toVo(local.getRue()));
+               localVo.setRueVo(new RueVoConverter().toVo(local.getRue()));
             }
             if (local.getReference() != null) {
                 localVo.setReference(local.getReference());
             }
-            
-            if(local.getDernierAnneePaye()!= null) {
+            if (local.getDernierAnneePaye()!= null) {
                 localVo.setDernierAnneePaye(new Integer(local.getDernierAnneePaye()));
             }
             if (local.getDernierMontantPaye()!= null) {
-                localVo.setDernierMontantPaye(new Double(local.getDernierMontantPaye()));
+                localVo.setDernierMontantPaye(new Double(localVo.getDernierMontantPaye()));
             }
             if (local.getDernierTrimestrePaye()!= null) {
-                localVo.setDernierTrimestrePaye(new Integer(local.getDernierTrimestrePaye()));
+                local.setDernierTrimestrePaye(new Integer(localVo.getDernierTrimestrePaye()));
             }
+            
         }
         return localVo;
     }
