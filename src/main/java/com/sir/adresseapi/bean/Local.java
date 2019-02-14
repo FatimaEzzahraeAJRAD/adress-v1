@@ -23,7 +23,7 @@ public class Local implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String reference;
+    private String referenceLocal;
     private double  chiffreAffaire;
     @ManyToOne
     private Redevable redevable;
@@ -34,8 +34,17 @@ public class Local implements Serializable {
     private double dernierMontantPaye ;
     private int dernierTrimestrePaye ;
     private double dernierAnneePaye ;
-    private String refCategorie;
+    private String libelle; 
 
+    public String getLibelle() {
+        return libelle;
+    }
+
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
+    }
+    
+    
     public double getChiffreAffaire() {
         return chiffreAffaire;
     }
@@ -52,12 +61,12 @@ public class Local implements Serializable {
         this.id = id;
     }
 
-    public String getReference() {
-        return reference;
+    public String getReferenceLocal() {
+        return referenceLocal;
     }
 
-    public void setReference(String reference) {
-        this.reference = reference;
+    public void setReferenceLocal(String referenceLocal) {
+        this.referenceLocal = referenceLocal;
     }
 
    
@@ -84,14 +93,6 @@ public class Local implements Serializable {
 
     public void setRue(Rue rue) {
         this.rue = rue;
-    }
-
-    public String getRefCategorie() {
-        return refCategorie;
-    }
-
-    public void setRefCategorie(String refCategorie) {
-        this.refCategorie = refCategorie;
     }
 
     public double getDernierMontantPaye() {
