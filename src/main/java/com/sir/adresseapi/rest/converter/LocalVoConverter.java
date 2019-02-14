@@ -6,6 +6,7 @@
 package com.sir.adresseapi.rest.converter;
 
 import com.sir.adresseapi.bean.Local;
+import com.sir.adresseapi.common.util.NumberUtil;
 import com.sir.adresseapi.rest.vo.LocalVo;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,13 +28,13 @@ public class LocalVoConverter {
                 local.setReference(localVo.getReference());
             }
             if (localVo.getDernierAnneePaye()!= null) {
-                local.setDernierAnneePaye(new Integer(localVo.getDernierAnneePaye()));
+                local.setDernierAnneePaye(NumberUtil.toDouble(localVo.getDernierAnneePaye()));
             }
             if (localVo.getDernierMontantPaye()!= null) {
-                local.setDernierMontantPaye(new Double(localVo.getDernierMontantPaye()));
+                local.setDernierMontantPaye(NumberUtil.toDouble(localVo.getDernierMontantPaye()));
             }
             if (localVo.getDernierTrimestrePaye()!= null) {
-                local.setDernierTrimestrePaye(new Integer(localVo.getDernierTrimestrePaye()));
+                local.setDernierTrimestrePaye(NumberUtil.toIneger(localVo.getDernierTrimestrePaye()));
             }
             if (localVo.getRedevableVo()!= null) {
                 local.setRedevable(new RedevableVoConverter().toItem(localVo.getRedevableVo()));
@@ -46,33 +47,21 @@ public class LocalVoConverter {
         return local;
     }
     public LocalVo toVO(Local local) {
-        LocalVo localVo = new LocalVo();
         if (local != null) {
-            if (local.getRue()!= null) {
+                    LocalVo localVo = new LocalVo();
+
                localVo.setRueVo(new RueVoConverter().toVo(local.getRue()));
-            }
-            if (local.getReference() != null) {
                 localVo.setReference(local.getReference());
-            }
-            if (local.getDernierAnneePaye()!= null) {
-                localVo.setDernierAnneePaye(new Integer(local.getDernierAnneePaye()));
-            }
-            if (local.getDernierMontantPaye()!= null) {
-                localVo.setDernierMontantPaye(new Double(localVo.getDernierMontantPaye()));
-            }
-            if (local.getDernierTrimestrePaye()!= null) {
-                local.setDernierTrimestrePaye(new Integer(localVo.getDernierTrimestrePaye()));
-            }
-            if (local.getRedevable()!= null) {
+                localVo.setDernierAnneePaye(NumberUtil.toDouble(local.getDernierAnneePaye()) );
+                localVo.setDernierMontantPaye(NumberUtil.toDouble(local.getDernierMontantPaye()));
+                localVo.setDernierTrimestrePaye(NumberUtil.toIneger(local.getDernierTrimestrePaye()));
                 localVo.setRedevableVo(new RedevableVoConverter().toVO(local.getRedevable()));
-            }
-            if (local.getProprietaire()!= null) {
                 localVo.setProprietaireVo(new RedevableVoConverter().toVO(local.getProprietaire()));
+                return localVo;
             }
-            
+            return null;
         }
-        return localVo;
-    }
+        
 
    public List<LocalVo> toVo(List<Local> locals) {
         List<LocalVo> localVos = new ArrayList();

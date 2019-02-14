@@ -17,19 +17,19 @@ import javax.persistence.OneToMany;
  */
 public class QuartierVo implements Serializable {
 
-   
-
-    private static final long serialVersionUID = 1L;
-   
-    
+   private Long id;
     private String reference;
     
-    @ManyToOne
     private SecteurVo secteurVo;
-    @OneToMany(mappedBy = "quartier")
-    private List<RueVo> ruesVo;
+    private List<RueVo> rueVos;
 
-    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getReference() {
         return reference;
@@ -47,18 +47,13 @@ public class QuartierVo implements Serializable {
         this.secteurVo = secteurVo;
     }
 
-    public List<RueVo> getRuesVo() {
-        return ruesVo;
+    public List<RueVo> getRueVos() {
+        return rueVos;
     }
 
-    public void setRuesVo(List<RueVo> ruesVo) {
-        this.ruesVo = ruesVo;
+    public void setRueVos(List<RueVo> rueVos) {
+        this.rueVos = rueVos;
     }
 
-   
 
-    
-
-  
-    
 }

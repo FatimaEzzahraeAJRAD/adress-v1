@@ -14,20 +14,24 @@ import javax.persistence.ManyToOne;
  */
 public class LocalVo implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    
-    
+    private Long id;
     private String reference;
-    @ManyToOne
+    private String  chiffreAffaire;
     private RedevableVo redevableVo;
-    @ManyToOne
+    
     private RedevableVo proprietaireVo;
-    @ManyToOne
     private RueVo rueVo;
     private String dernierMontantPaye ;
     private String dernierTrimestrePaye ;
     private String dernierAnneePaye ;
-    private String refCategorie;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getReference() {
         return reference;
@@ -35,6 +39,14 @@ public class LocalVo implements Serializable {
 
     public void setReference(String reference) {
         this.reference = reference;
+    }
+
+    public String getChiffreAffaire() {
+        return chiffreAffaire;
+    }
+
+    public void setChiffreAffaire(String chiffreAffaire) {
+        this.chiffreAffaire = chiffreAffaire;
     }
 
     public RedevableVo getRedevableVo() {
@@ -92,9 +104,7 @@ public class LocalVo implements Serializable {
     public void setRefCategorie(String refCategorie) {
         this.refCategorie = refCategorie;
     }
-
-   
-
+    private String refCategorie;
     
     
 }

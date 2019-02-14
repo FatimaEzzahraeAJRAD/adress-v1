@@ -15,25 +15,8 @@ import javax.persistence.OneToMany;
  */
 public class SecteurVo implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+   private Long id;
     private String reference;
-     @OneToMany(mappedBy = "secteur")
-    private List<QuartierVo> quartiers;
+    private List<QuartierVo> quartierVos;
 
-    public String getReference() {
-        return reference;
-    }
-
-    public void setReference(String reference) {
-        this.reference = reference;
-    }
-
-    public List<QuartierVo> getQuartiers() {
-        return quartiers;
-    }
-
-    public void setQuartiers(List<QuartierVo> quartiers) {
-        this.quartiers = quartiers;
-    }
-    
 }

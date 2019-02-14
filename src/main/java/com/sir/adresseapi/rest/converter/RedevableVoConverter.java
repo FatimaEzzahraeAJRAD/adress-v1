@@ -42,6 +42,9 @@ public class RedevableVoConverter {
             if (redevableVo.getMatricule()!= null) {
                 redevable.setMatricule(redevableVo.getMatricule());
             }
+            if (redevableVo.getLocalVos()!= null) {
+                redevable.setLocals(new LocalVoConverter().toItem(redevableVo.getLocalVos()));
+            }
             
             
             
@@ -69,6 +72,10 @@ public class RedevableVoConverter {
             }
             if (redevable.getMatricule()!= null) {
                 redevableVo.setMatricule(redevable.getMatricule());
+            }
+            
+            if (redevable.getLocals()!= null) {
+                redevableVo.setLocalVos(new LocalVoConverter().toVo(redevable.getLocals()));
             }
             
             

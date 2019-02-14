@@ -28,8 +28,8 @@ public class QuartierVoConverter {
             }
             
              
-            if (quartierVo.getRuesVo()!= null) {
-                quartier.setRues(new RueVoConverter().toItem(quartierVo.getRuesVo()));
+            if (quartierVo.getRueVos()!= null) {
+                quartier.setRues(new RueVoConverter().toItem(quartierVo.getRueVos()));
             }
             
              
@@ -54,7 +54,7 @@ public class QuartierVoConverter {
             
              
             if (quartier.getRues()!= null) {
-                quartierVo.setRuesVo(new RueVoConverter().toVo(quartier.getRues()));
+                quartierVo.setRueVos(new RueVoConverter().toVo(quartier.getRues()));
             }
             
              

@@ -17,27 +17,24 @@ import javax.persistence.OneToMany;
  * @author user
  */
 public class RedevableVo implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+    
+    private Long id;
     private String cin;
     private String nom;
-    private String adresse;
     private String prenom;
-    private String telephone;
     private String matricule;
-    
-    @OneToMany(mappedBy = "redevable")
-    private List<LocalVo> locals;
+    private String telephone;
+    private String adresse;
+    private List<LocalVo> localVos;
 
-    public String getMatricule() {
-        return matricule;
+    public Long getId() {
+        return id;
     }
 
-    public void setMatricule(String marticule) {
-        this.matricule = marticule;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-   
     public String getCin() {
         return cin;
     }
@@ -54,12 +51,28 @@ public class RedevableVo implements Serializable {
         this.nom = nom;
     }
 
-    public List<LocalVo> getLocals() {
-        return locals;
+    public String getPrenom() {
+        return prenom;
     }
 
-    public void setLocals(List<LocalVo> locals) {
-        this.locals = locals;
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public String getMatricule() {
+        return matricule;
+    }
+
+    public void setMatricule(String matricule) {
+        this.matricule = matricule;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
     public String getAdresse() {
@@ -70,21 +83,14 @@ public class RedevableVo implements Serializable {
         this.adresse = adresse;
     }
 
-    public String getPrenom() {
-        return prenom;
+    public List<LocalVo> getLocalVos() {
+        return localVos;
     }
 
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
+    public void setLocalVos(List<LocalVo> localVos) {
+        this.localVos = localVos;
     }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
+    
 
 
 }
